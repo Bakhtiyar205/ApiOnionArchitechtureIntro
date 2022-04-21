@@ -11,5 +11,6 @@ namespace ServiceLayer.Services.Interfaces
     public interface IBookService
     {
         Task<List<BookListDTO>> GetAllAsync();
+        Task CreateAsync(BookListDTO bookList);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ServiceLayer.DTOs.Book;
 using ServiceLayer.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,13 @@ namespace WebApi.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _bookService.GetAllAsync());
+        }
+
+        [HttpPost]
+        [Route("Create")]
+        public async Task Create([FromBody]BookListDTO bookList)
+        {
+            await _bookService.CreateAsync(bookList);
         }
     }
 }

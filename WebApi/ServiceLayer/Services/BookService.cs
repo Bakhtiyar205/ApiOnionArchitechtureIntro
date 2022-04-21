@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DomainLayer.Entities;
 using RepositoryLayer.Repositories.Interfaces;
 using ServiceLayer.DTOs.Book;
 using ServiceLayer.DTOs.Customer;
@@ -26,6 +27,12 @@ namespace ServiceLayer.Services
             var model = await _bookRepository.GetAllAsync();
 
             return _mapper.Map<List<BookListDTO>>(model);
+        }
+
+        public async Task CreateAsync(BookListDTO bookList)
+        {
+           var model = _mapper.Map<Book>(bookList);
+           await _bookRepository.CreateAsync(model);
         }
     }
 }

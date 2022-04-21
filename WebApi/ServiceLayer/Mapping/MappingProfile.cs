@@ -12,7 +12,8 @@ namespace ServiceLayer.Mapping
         public MappingProfile()
         {
             CreateMap<Customer, CustomerListDTO>();
-            CreateMap<Book, BookListDTO>();
+            CreateMap<Book, BookListDTO>().ReverseMap();
+
         }
     }
 }
